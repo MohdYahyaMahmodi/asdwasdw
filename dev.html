@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bouncing Balls - Full Screen & Unlimited</title>
+  <style>
+    /* Remove default margins and scrollbars */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    /* Make the canvas fill the entire viewport */
+    canvas {
+      display: block;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <!-- The canvas element; its dimensions will be set via JavaScript -->
+  <canvas id="canvas"></canvas>
+  <script>
+    /**************************************************
+     * Set Up Full Screen Canvas
+     **************************************************/
+    var canvas = document.getElementById("canvas");
+    // Set the canvas size to the full window dimensions.
+    function resizeCanvas() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      // Update our global WIDTH and HEIGHT values.
+      WIDTH = window.innerWidth;
+      HEIGHT = window.innerHeight;
+    }
+    // Set the canvas size initially.
+    resizeCanvas();
+    // (Optional) Update canvas size if the window is resized.
+    window.addEventListener("resize", resizeCanvas);
+
+    /**************************************************
+     * Pseudo-super() method.
+     **************************************************/
+    function extend(base, sub) {
+      var origProto = sub.prototype;
+      sub.prototype = Object.create(base.prototype);
+      for (var key in origProto) {
+        if (origProto.hasOwnProperty(key)) {
+          sub.prototype[key] = origProto[key];
+        }
+      }
+      Object.defineProperty(sub.prototype, 'constructor', {
+        enumerable: false,
+        value: sub
+      });
+    }
+
+    /**************************************************
+     * Object Classes.
+     **************************************************/
+    /**
+     * Represents a moving object.
+     *
+     * @constructor
+     * @param {Object} options - Properties for the object.
+     */
+    var MovingObject = function (options) {
+      // 'width' is interpreted as the radius.
+      this.width = options.width;
+      this.stroke = options.stroke || TRANSPARENT;
+      this.strokeWidth = options.strokeWidth || 0;
+      this.fill = options.fill || TRANSPARENT;
+      this.speedX = options.speedX || 0;
+      this.speedY = options.speedY || 0;
+      this.x = options.x;
+      this.y = options.y;
+      this.gravity = options.gravity || 0;
+      this.gravitySpeed = options.gravitySpeed || 0;
+      this.dampFactor = options.dampFactor || 1;
+      this.drag = options.drag || 0;
+      // Unique identifier.
+      this.uuid = Date.now() + "_" + Math.random();
+      // Flag to indicate this object is being dragged.
+      this.isDragging = false;
+    };
+
+    MovingObject.prototype = {
+      /**
+       * Updates physics properties (gravity, drag, position) and then checks for collisions.
+       *
+       * @param {number} dt - Time elapsed since last update (in ms).
+       */
+      update: function (dt) {
+        if (this.isDragging) return;
+
+        this.gravitySpeed += this.gravity * dt;
+        if (this.drag) {
+          this.speedX *= (1 - this.drag * dt);
+          this.gravitySpeed *= (1 - this.drag * dt);
+        }
+        this.x += this.speedX * dt;
+        this.y += (this.speedY + this.gravitySpeed) * dt;
+        this.checkCollisions();
+        return this;
+      },
+
+      /**
+       * Checks for collisions with the canvas boundaries and adjusts velocities.
+       */
+      checkCollisions: function () {
+        var collided = false;
+        if (Math.abs(this.speedX) < MIN_MOVING_VELOCITY_THRESHOLD) this.speedX = 0;
+        if (Math.abs(this.speedY) < MIN_MOVING_VELOCITY_THRESHOLD) this.speedY = 0;
+
+        // Left wall.
+        if (this.x < this.width + (this.strokeWidth * 2)) {
+          collided = true;
+          this.x = this.width + (this.strokeWidth * 2);
+          this.speedX *= -this.dampFactor;
+        }
+        // Right wall.
+        if (this.x > (WIDTH - MARGIN) - (this.width + (this.strokeWidth * 2))) {
+          collided = true;
+          this.x = (WIDTH - MARGIN) - (this.width + (this.strokeWidth * 2));
+          this.speedX *= -this.dampFactor;
+        }
+        // Ceiling.
+        if (this.y < (this.width + MARGIN)) {
+          collided = true;
+          this.y = (this.width + MARGIN);
+          if ((this.speedY + this.gravitySpeed) < 0) {
+            this.speedY = 0;
+            this.gravitySpeed = 0;
+          }
+        }
+        // Floor.
+        if (this.y > (HEIGHT - MARGIN) - this.width) {
+          this.y = (HEIGHT - MARGIN) - this.width;
+          var totalV = this.speedY + this.gravitySpeed;
+          if (Math.abs(totalV) < MIN_VELOCITY_THRESHOLD) {
+            this.speedY = 0;
+            this.gravitySpeed = 0;
+          } else {
+            collided = true;
+            totalV *= -this.dampFactor;
+            this.speedY = 0;
+            this.gravitySpeed = totalV;
+          }
+        }
+
+        if (collided) {
+          playBounceSound();
+          if (DEBUG) {
+            setStrokeColor(TRANSPARENT);
+            setFillColor("#00ff00");
+            circle(this.x, this.y, this.width * 4);
+          }
+        }
+        return this;
+      },
+
+      /**
+       * Prepares the canvas context for drawing.
+       */
+      draw: function () {
+        setStrokeWidth(this.strokeWidth);
+        setStrokeColor(this.stroke);
+        setFillColor(this.fill);
+        return this;
+      }
+    };
+
+    /**
+     * Represents a ball.
+     *
+     * @constructor
+     * @param {Object} options - Same options as MovingObject.
+     */
+    var Ball = function (options) {
+      MovingObject.call(this, options);
+    };
+
+    Ball.prototype = {
+      /**
+       * Draws the ball by calling the parent draw method and then drawing a circle.
+       */
+      draw: function () {
+        MovingObject.prototype.draw.call(this);
+        circle(this.x, this.y, this.width);
+        if (DEBUG) {
+          setFillColor(TRANSPARENT);
+          setStrokeColor("#00ff00");
+          rect(
+            this.x - this.width * 2 - this.width * DRAG_REACH_FACTOR,
+            this.y - this.width * 2 - this.width * DRAG_REACH_FACTOR,
+            this.width * (DRAG_REACH_FACTOR + 2) * 2,
+            this.width * (DRAG_REACH_FACTOR + 2) * 2
+          );
+        }
+        return this;
+      }
+    };
+    extend(MovingObject, Ball);
+
+    /**************************************************
+     * Function Definitions.
+     **************************************************/
+    function randomHex() {
+      var hex = (Math.random() * 0xFFFFFF << 0).toString(16);
+      var pad = 6 - hex.length;
+      for (var i = 0; i < pad; i++) {
+        hex = "0" + hex;
+      }
+      return "#" + hex;
+    }
+
+    function randomMinMax(min, max) {
+      return (Math.random() * (max - min)) + min;
+    }
+
+    function lerp(x, y, a) {
+      return x * (1 - a) + y * a;
+    }
+
+    function deleteBall(uuid) {
+      delete objects[uuid];
+      uuids = uuids.filter(function (u) { return u !== uuid; });
+    }
+
+    function resolveCollision(a, b) {
+      var combinedRadius = (a.width + (a.strokeWidth * 4) + b.width + (b.strokeWidth * 4)) / 2;
+      var dx = b.x - a.x;
+      var dy = b.y - a.y;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist === 0) return; // Avoid division by zero.
+
+      if (dist <= combinedRadius) {
+        var mx = (a.x + b.x) / 2;
+        var my = (a.y + b.y) / 2;
+        var nx = dx / dist;
+        var ny = dy / dist;
+
+        var overlap = combinedRadius - dist + 0.01;
+        a.x -= nx * (overlap / 2);
+        a.y -= ny * (overlap / 2);
+        b.x += nx * (overlap / 2);
+        b.y += ny * (overlap / 2);
+
+        if (Math.abs(a.speedX) < MIN_VELOCITY_THRESHOLD && Math.abs(a.speedY) < MIN_VELOCITY_THRESHOLD) {
+          a.speedX += (Math.random() - 0.5) * MIN_VELOCITY_THRESHOLD;
+          a.gravitySpeed += (Math.random() - 0.5) * MIN_VELOCITY_THRESHOLD;
+        }
+        if (Math.abs(b.speedX) < MIN_VELOCITY_THRESHOLD && Math.abs(b.speedY) < MIN_VELOCITY_THRESHOLD) {
+          b.speedX += (Math.random() - 0.5) * MIN_VELOCITY_THRESHOLD;
+          b.gravitySpeed += (Math.random() - 0.5) * MIN_VELOCITY_THRESHOLD;
+        }
+
+        var v1 = { x: a.speedX, y: a.speedY + a.gravitySpeed };
+        var v2 = { x: b.speedX, y: b.speedY + b.gravitySpeed };
+
+        var v1n = v1.x * nx + v1.y * ny;
+        var v2n = v2.x * nx + v2.y * ny;
+
+        var v1t = { x: v1.x - v1n * nx, y: v1.y - v1n * ny };
+        var v2t = { x: v2.x - v2n * nx, y: v2.y - v2n * ny };
+
+        var newV1n = BOUNCE_RESTITUTION_FACTOR * v2n;
+        var newV2n = BOUNCE_RESTITUTION_FACTOR * v1n;
+
+        var newV1 = { x: v1t.x + newV1n * nx, y: v1t.y + newV1n * ny };
+        var newV2 = { x: v2t.x + newV2n * nx, y: v2t.y + newV2n * ny };
+
+        a.speedX = newV1.x;
+        a.gravitySpeed = newV1.y;
+        b.speedX = newV2.x;
+        b.gravitySpeed = newV2.y;
+
+        playBounceSound();
+        if (DEBUG) {
+          setStrokeColor(TRANSPARENT);
+          setFillColor("#ff0000");
+          circle(mx, my, combinedRadius * 2);
+        }
+      }
+    }
+
+    function checkBallCollisions() {
+      var keys = Object.keys(objects);
+      for (var i = 0; i < keys.length; i++) {
+        for (var j = i + 1; j < keys.length; j++) {
+          resolveCollision(objects[keys[i]], objects[keys[j]]);
+        }
+      }
+    }
+
+    function playBounceSound() {
+      playSound(BOUNCE_SOUNDS[Math.floor(Math.random() * BOUNCE_SOUNDS.length)], false);
+    }
+
+    function updateDrag(e) {
+      var now = Date.now();
+      var dt = now - lastDragTime;
+      if (dt > 0) {
+        currentDragVX = (e.x - lastDragX) / dt;
+        currentDragVY = (e.y - lastDragY) / dt;
+      }
+      currentDraggedBall.x = e.x;
+      currentDraggedBall.y = e.y;
+      checkCursorBallCollisions(currentDraggedBall, currentDragVX, currentDragVY);
+      lastDragX = e.x;
+      lastDragY = e.y;
+      lastDragTime = now;
+    }
+
+    function checkCursorBallCollisions(draggedBall, cursorVX, cursorVY) {
+      var keys = Object.keys(objects);
+      for (var i = 0; i < keys.length; i++) {
+        var ball = objects[keys[i]];
+        if (ball === draggedBall) continue;
+        var dx = ball.x - draggedBall.x;
+        var dy = ball.y - draggedBall.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        var combinedRadius = (draggedBall.width + (draggedBall.strokeWidth * 4) +
+                                ball.width + (ball.strokeWidth * 4)) / 2;
+        if (dist <= combinedRadius) {
+          var mx = (draggedBall.x + ball.x) / 2;
+          var my = (draggedBall.y + ball.y) / 2;
+          var nx = dx / dist;
+          var ny = dy / dist;
+          var impulseFactor = DRAG_BOUNCE_IMPULSE_FACTOR;
+          ball.speedX += impulseFactor * cursorVX * nx;
+          ball.speedY += impulseFactor * cursorVY * ny;
+          if (DEBUG) {
+            setStrokeColor(TRANSPARENT);
+            setFillColor("#0000ff");
+            circle(mx, my, combinedRadius * 2);
+          }
+        }
+      }
+    }
+
+    /**************************************************
+     * Event Listeners.
+     **************************************************/
+    // mousedown: Check for ball click/drag or deletion (via middle/right click).
+    onEvent("canvas", "mousedown", function (e) {
+      if (skipClick) return;
+      var keys = Object.keys(objects);
+      for (var i = 0; i < keys.length; i++) {
+        var ball = objects[keys[i]];
+        var dx = e.x - ball.x;
+        var dy = e.y - ball.y;
+        if (Math.sqrt(dx * dx + dy * dy) <= (ball.width + ball.strokeWidth * 2) * DRAG_REACH_FACTOR) {
+          if (e.button == 1 || e.which == 2) {
+            return deleteBall(ball.uuid);
+          }
+          currentDraggedBall = ball;
+          ball.isDragging = true;
+          ball.x = e.x;
+          ball.y = e.y;
+          firstDragX = e.x;
+          firstDragY = e.y;
+          lastDragX = e.x;
+          lastDragY = e.y;
+          lastDragTime = Date.now();
+          currentDragVX = 0;
+          currentDragVY = 0;
+          skipClick = true;
+          break;
+        }
+      }
+    });
+
+    // mousemove: Update mouse velocity and move the dragged ball.
+    onEvent("canvas", "mousemove", function (e) {
+      var now = Date.now();
+      var dt = now - lastMouseTime;
+      if (dt > 0) {
+        mouseVX = (e.x - lastMouseX) / dt;
+        mouseVY = (e.y - lastMouseY) / dt;
+      }
+      lastMouseX = e.x;
+      lastMouseY = e.y;
+      lastMouseTime = now;
+      if (currentDraggedBall) {
+        updateDrag(e);
+      }
+    });
+
+    // mouseup: Release the dragged ball and set its velocity.
+    onEvent("canvas", "mouseup", function (e) {
+      if (currentDraggedBall) {
+        currentDraggedBall.speedX = currentDragVX;
+        currentDraggedBall.speedY = 0;
+        currentDraggedBall.gravitySpeed = currentDragVY;
+        currentDraggedBall.isDragging = false;
+        currentDraggedBall = null;
+      }
+    });
+
+    // click: Create a new ball at the click location.
+    onEvent("canvas", "click", function (e) {
+      if (skipClick) {
+        skipClick = false;
+        return;
+      }
+      // (Unlimited balls: no deletion check here)
+      var ball = new Ball({
+        x: e.x,
+        y: e.y,
+        width: BALL_WIDTH,
+        stroke: BALL_STROKE_COLOR,
+        strokeWidth: BALL_STROKE_WIDTH,
+        fill: randomHex(),
+        gravity: GRAVITY,
+        speedX: mouseVX,
+        speedY: 0,
+        gravitySpeed: mouseVY,
+        dampFactor: BOUNCE_DAMP_FACTOR,
+        drag: DRAG
+      });
+      objects[ball.uuid] = ball;
+      uuids.push(ball.uuid);
+    });
+
+    /**************************************************
+     * Global Variables & Canvas Settings.
+     **************************************************/
+    // Use full screen dimensions.
+    var WIDTH = window.innerWidth;
+    var HEIGHT = window.innerHeight;
+    var MARGIN = 3;
+    var TRANSPARENT = rgb(0, 0, 0, 0.1);
+    var FPS = 100;
+    var DEBUG = false;
+
+    var BALL_WIDTH = 5;
+    var BALL_STROKE_COLOR = "#ffffff";
+    var BALL_STROKE_WIDTH = 1;
+
+    var BOUNCE_DAMP_FACTOR = 0.8;
+    var BOUNCE_RESTITUTION_FACTOR = 0.9;
+    var MIN_VELOCITY_THRESHOLD = 0.05;
+    var MIN_MOVING_VELOCITY_THRESHOLD = 0.001;
+    var BOUNCE_SOUNDS = ["bounce0.mp3", "bounce1.mp3", "bounce2.mp3", "bounce3.mp3", "bounce4.mp3", "bounce5.mp3"];
+
+    var MIN_DRAG_DISTANCE = 1;
+    var DRAG_REACH_FACTOR = 3;
+    var DRAG_BOUNCE_IMPULSE_FACTOR = 0.5;
+
+    var GRAVITY = 0.001;
+    var DRAG = 0.0005;
+
+    var currentDraggedBall = null;
+    var firstDragX = 0;
+    var firstDragY = 0;
+    var lastDragX = 0;
+    var lastDragY = 0;
+    var lastDragTime = 0;
+    var currentDragVX = 0;
+    var currentDragVY = 0;
+    var lastMouseX = 0;
+    var lastMouseY = 0;
+    var lastMouseTime = 0;
+    var mouseVX = 0;
+    var mouseVY = 0;
+    var skipClick = false;
+    var last_update = null;
+    var objects = {};
+    var uuids = [];
+
+    /**************************************************
+     * Main Animation Loop.
+     **************************************************/
+    setActiveCanvas("canvas");
+    setInterval(function () {
+      setStrokeColor(TRANSPARENT);
+      setFillColor(TRANSPARENT);
+      rect(0, 0, WIDTH, HEIGHT);
+
+      var now = Date.now();
+      var dt = now - (last_update || now);
+
+      var keys = Object.keys(objects);
+      for (var i = 0; i < keys.length; i++) {
+        objects[keys[i]].update(dt);
+      }
+
+      checkBallCollisions();
+
+      for (i = 0; i < keys.length; i++) {
+        objects[keys[i]].draw();
+      }
+
+      last_update = now;
+    }, 1000 / FPS);
+
+    /**************************************************
+     * Polyfill for onEvent and setActiveCanvas Functions.
+     **************************************************/
+    function onEvent(id, eventName, callback) {
+      var element = document.getElementById(id);
+      if (element) {
+        element.addEventListener(eventName, function(e) {
+          var rect = element.getBoundingClientRect();
+          e.x = e.clientX - rect.left;
+          e.y = e.clientY - rect.top;
+          callback(e);
+        });
+      }
+    }
+
+    function setActiveCanvas(id) {
+      // Placeholder – the active canvas is already identified.
+    }
+
+    /**************************************************
+     * Polyfill for Drawing Functions using Canvas API.
+     **************************************************/
+    function circle(x, y, radius) {
+      var ctx = document.getElementById("canvas").getContext("2d");
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    }
+
+    function rect(x, y, width, height) {
+      var ctx = document.getElementById("canvas").getContext("2d");
+      ctx.beginPath();
+      ctx.rect(x, y, width, height);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    }
+
+    function setStrokeColor(color) {
+      var ctx = document.getElementById("canvas").getContext("2d");
+      ctx.strokeStyle = color;
+    }
+
+    function setFillColor(color) {
+      var ctx = document.getElementById("canvas").getContext("2d");
+      ctx.fillStyle = color;
+    }
+
+    function setStrokeWidth(width) {
+      var ctx = document.getElementById("canvas").getContext("2d");
+      ctx.lineWidth = width;
+    }
+
+    function rgb(r, g, b, a) {
+      return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+    }
+
+    function playSound(src, loop) {
+      var audio = new Audio(src);
+      audio.loop = loop;
+      audio.play();
+    }
+  </script>
+</body>
+</html>
