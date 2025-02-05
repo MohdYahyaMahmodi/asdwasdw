@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO: Title Tag -->
+  <title>Rallysports Auto Spa | Car Wash in Costa Mesa | Detailing & More</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="description" content="Looking for the best car wash in Costa Mesa? Rallysports Auto Spa offers premium washes, detailing, wax, and more. Visit us at 2015 Harbor Blvd or call (916) 691-6239.">
+  <meta name="keywords" content="car wash in costa mesa, auto spa in costa mesa, rallysports, auto detailing, hand wash, waxing, interior detailing">
+  
+  <!-- Important SEO Meta Tags -->
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://rallysportsautospa.com"> <!-- Replace with your real domain -->
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rallysports Auto Spa - Car Wash in Costa Mesa">
+  <meta property="og:description" content="Rallysports Auto Spa is Costa Mesa's premier car wash. Our services include hand washes, wax, clay treatments, and complete detailing. Call us at (916) 691-6239.">
+  <meta property="og:url" content="https://rallysportsautospa.com">
+  <meta property="og:image" content="https://rallysportsautospa.com/images/your-social-image.jpg">
+
+  <!-- Twitter (Optional) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rallysports Auto Spa - Car Wash in Costa Mesa">
+  <meta name="twitter:description" content="Get the best hand wash, detailing, and car care services in Costa Mesa at Rallysports Auto Spa.">
+  <meta name="twitter:image" content="https://rallysportsautospa.com/images/your-social-image.jpg">
+  
+  <!-- Viewport for Responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <!-- 
+    JSON-LD Structured Data for Local Business
+    Replace "example.com" with your actual site and fill in real contact info 
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CarWash",
+    "name": "Rallysports Auto Spa",
+    "image": "https://rallysportsautospa.com/images/your-social-image.jpg",
+    "@id": "https://rallysportsautospa.com/#CarWash",
+    "url": "https://rallysportsautospa.com/",
+    "telephone": "+1-916-691-6239",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2015 Harbor Blvd",
+      "addressLocality": "Costa Mesa",
+      "addressRegion": "CA",
+      "postalCode": "92627",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 33.64778,
+      "longitude": -117.91943
+    },
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100057324284850",
+      "https://www.yelp.com/biz/rallysport-auto-spa-costa-mesa"
+    ]
+  }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <!-- Tailwind Browser Plugin -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Swiper CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  
+  <!-- LightGallery CSS & JS (with Thumbnail and Zoom plugins) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.umd.min.js"></script>
+
+  <style>
+    /* Ensure all elements use border-box */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    /* Prevent horizontal scrolling */
+    html, body {
+      overflow-x: hidden;
+    }
+
+    /* ---------------------------------------
+       Added for Red/Blue/Yellow Accents
+    ---------------------------------------- */
+    :root {
+      --accent-red: #ff3333;
+      --accent-blue: #0066ff;
+      --accent-yellow: #ffcc00;
+
+      --dark-red: #cc0000;
+      --dark-blue: #0045b3;
+      --dark-yellow: #cc9900;
+    }
+
+    /* Utility classes for background accents */
+    .bg-accent-red {
+      background-color: var(--accent-red) !important;
+    }
+    .bg-accent-blue {
+      background-color: var(--accent-blue) !important;
+    }
+    .bg-accent-yellow {
+      background-color: var(--accent-yellow) !important;
+    }
+
+    /* Utility classes for text accents */
+    .text-accent-red {
+      color: var(--accent-red) !important;
+    }
+    .text-accent-blue {
+      color: var(--accent-blue) !important;
+    }
+    .text-accent-yellow {
+      color: var(--accent-yellow) !important;
+    }
+
+    /* Hover states */
+    .hover\:bg-accent-red:hover {
+      background-color: var(--dark-red) !important;
+    }
+    .hover\:bg-accent-blue:hover {
+      background-color: var(--dark-blue) !important;
+    }
+    .hover\:bg-accent-yellow:hover {
+      background-color: var(--dark-yellow) !important;
+    }
+    .hover\:text-accent-red:hover {
+      color: var(--accent-red) !important;
+    }
+    .hover\:text-accent-blue:hover {
+      color: var(--accent-blue) !important;
+    }
+    .hover\:text-accent-yellow:hover {
+      color: var(--accent-yellow) !important;
+    }
+    /* ---------------------------------------
+       End of accent CSS
+    ---------------------------------------- */
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+    }
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Gallery & Swiper container styling */
+    .swiper-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 50px; /* space for pagination dots */
+    }
+    .swiper-slide {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      cursor: pointer;
+      height: 100%;
+    }
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Overlay icon for hover effect */
+    .overlay-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .swiper-slide:hover .overlay-icon {
+      opacity: 1;
+    }
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.active {
+        display: block;
+      }
+    }
+
+    /* ===== TESTIMONIALS STYLING ===== */
+    .testimonials-slider {
+      padding-bottom: 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    /* Remove forced height so it auto-resizes */
+    .review {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      background: white;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      padding: 1rem; /* some breathing room inside each card */
+    }
+    .review-content {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Facebook iframe styling */
+    .review iframe {
+      width: 100% !important;
+      height: 195px !important;
+      margin: 0 !important;
+      display: block;
+      max-width: 700px;
+      border: none;
+    }
+    /* Yelp review styling */
+    .yelp-review {
+      width: 100% !important;
+      height: 195px !important;
+      overflow: visible !important;
+      display: block;
+      max-width: 700px;
+    }
+    /* Swiper container specific styles */
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+    .swiper-slide {
+      height: auto !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Modal animation */
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    #review-modal .bg-white {
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      h2.text-4xl {
+        font-size: 2rem;
+      }
+      .review iframe {
+        height: 180px !important;
+      }
+      .yelp-review {
+        height: 180px !important;
+      }
+      .swiper-slide {
+        padding: 0.5rem;
+      }
+    }
+    /* Larger screen styles */
+    @media (min-width: 769px) {
+      .swiper-slide {
+        padding: 1rem;
+      }
+    }
+
+    .google-img{
+      width: 50px;
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="w-full px-4 py-3">
+      <!-- Navbar Container -->
+      <div class="flex items-center w-full">
+        <!-- Left Side: Logo and Desktop Navigation Links -->
+        <div class="flex items-center">
+          <!-- Logo -->
+          <a href="#" class="flex-shrink-0">
+            <img src="image.png" alt="Rallysports Auto Spa Logo - Best Car Wash in Costa Mesa" class="h-12">
+          </a>
+          <!-- Desktop Navigation Links -->
+          <div class="hidden md:flex items-center space-x-8 ml-8">
+            <a href="#" class="text-gray-800 hover:text-accent-red transition-colors font-medium">Home</a>
+            <a href="#services" class="text-gray-800 hover:text-accent-red transition-colors font-medium">Services</a>
+            <a href="#gallery" class="text-gray-800 hover:text-accent-red transition-colors font-medium">Gallery</a>
+            <a href="#testimonials" class="text-gray-800 hover:text-accent-red transition-colors font-medium">Reviews</a>
+            <a href="#contact" class="text-gray-800 hover:text-accent-red transition-colors font-medium">Contact</a>
+          </div>
+        </div>
+        <!-- Right Side: Mobile Menu Button (hidden on desktop) -->
+        <div class="ml-auto md:hidden">
+          <button id="mobile-menu-button" class="text-gray-700 hover:text-accent-red transition-colors">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div class="mobile-menu hidden md:hidden mt-4 bg-gray-50 rounded-lg overflow-hidden" id="mobile-menu">
+        <div class="py-2 px-4 space-y-3">
+          <a href="#" class="block py-2 text-gray-800 hover:text-accent-red hover:bg-gray-100 rounded px-2 transition-colors">Home</a>
+          <a href="#services" class="block py-2 text-gray-800 hover:text-accent-red hover:bg-gray-100 rounded px-2 transition-colors">Services</a>
+          <a href="#gallery" class="block py-2 text-gray-800 hover:text-accent-red hover:bg-gray-100 rounded px-2 transition-colors">Gallery</a>
+          <a href="#testimonials" class="block py-2 text-gray-800 hover:text-accent-red hover:bg-gray-100 rounded px-2 transition-colors">Reviews</a>
+          <a href="#contact" class="block py-2 text-gray-800 hover:text-accent-red hover:bg-gray-100 rounded px-2 transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden min-h-screen flex items-center justify-center">
+    <!-- Background Video/Image Layer -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-10"></div>
+      <video 
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay 
+        loop 
+        muted 
+        playsinline
+        poster="images/1.webp">
+        <img src="images/1.webp" alt="Background Car Wash Scene" class="w-full h-full object-cover">
+      </video>
+    </div>
+    <!-- Content Layer -->
+    <div class="container mx-auto px-4 sm:px-6 relative z-20 pt-20 pb-16 sm:py-0">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Premier Badge -->
+        <div 
+          class="inline-block bg-accent-red text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6 animate-bounce"
+          data-aos="fade-down"
+        >
+          ★ Premier Car Wash in Costa Mesa ★
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-white" data-aos="fade-up">
+          Rallysports Auto Spa
+          <span class="block text-2xl sm:text-3xl md:text-4xl mt-2 font-light">Carwash Services</span>
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-100 bg-black/30 backdrop-blur-sm py-3 px-4 sm:py-4 sm:px-6 rounded-lg inline-block" data-aos="fade-up" data-aos-delay="50">
+          Transform your ride at Costa Mesa's premier auto spa. We'll make your car look better than the day you bought it.
+        </p>
+        <!-- CTA Button -->
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="100">
+          <a 
+            href="#services" 
+            class="w-full max-w-[280px] sm:w-auto bg-accent-yellow hover:bg-accent-yellow text-black px-4 sm:px-6 py-3 rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/30 flex items-center justify-center"
+          >
+            <span class="text-sm sm:text-base">View Services</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+        <!-- Contact Information -->
+        <div class="mt-8 sm:mt-12" data-aos="fade-up" data-aos-delay="150">
+          <p class="text-xl text-white bg-black/40 inline-block py-2 px-4 rounded-md">
+            Walk-ins are welcome! Call ahead to check wait times or vehicle status. <br>
+            <em class="text-sm">(Click the bottom of the card to directly call)</em>
+          </p>
+        </div>
+        <!-- Trust Indicators -->
+        <div class="mt-8 sm:mt-12 grid grid-cols-2 gap-2 sm:gap-4 text-center text-white/90" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-3 sm:p-4 rounded-lg">
+            <i class="fas fa-shield-alt text-green-400 text-xl sm:text-2xl mb-1 sm:mb-2"></i>
+            <p class="font-medium text-sm sm:text-base">Premium Service</p>
+          </div>
+          <div class="p-3 sm:p-4 rounded-lg">
+            <i class="fas fa-clock text-purple-400 text-xl sm:text-2xl mb-1 sm:mb-2"></i>
+            <p class="font-medium text-sm sm:text-base">Quick Service</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+      <a href="#services" class="flex flex-col items-center">
+        <i class="fas fa-chevron-down text-xl sm:text-2xl mb-1 sm:mb-2"></i>
+        <span class="text-xs sm:text-sm flex flex-col items-center">
+          <span class="font-medium">Scroll to Explore</span>
+          <span class="text-gray-300 text-xs">Services • Gallery • Reviews</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl font-bold mb-4">Our Services</h2>
+        <p class="text-gray-600">
+          Explore our range of services. Call us at <span class="font-bold">(916) 691-6239</span> to check wait times or vehicle status – Walk-ins are welcome!<br>
+          <em class="text-sm">Click the bottom of the service card to directly call</em>
+        </p>
+      </div>
+      <!-- Regular Services -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Exterior Wash -->
+        <div class="service-card bg-white rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col" data-aos="fade-up">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-accent-red/10 rounded-bl-full -mr-12 -mt-12 opacity-50"></div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4">Exterior Wash</h3>
+            <p class="text-3xl font-bold text-accent-red mb-2">$19.99</p>
+            <p class="text-sm text-gray-600 mb-6">SUV +$1.99 | LRG SUV +$3.99 | XL SUV +$5.99</p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>100% Hand Wash</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr=3"></i>
+                <span>Exterior Windows</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr=3"></i>
+                <span>Tire Dressing</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr=3"></i>
+                <span>Wheel Cleaning</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Contact Info -->
+          <div class="mt-auto">
+            <a href="tel:+19166916239" class="w-full block text-center py-2 px-4 bg-accent-blue hover:bg-accent-blue text-white rounded-lg text-sm transition-colors">
+              <span class="block font-semibold"><i class="fas fa-phone-alt mr-1"></i> Walk-ins Accepted</span>
+              <span class="block">Tap to Call (916) 691-6239</span>
+            </a>
+          </div>
+        </div>
+        <!-- Basic Wash -->
+        <div class="service-card bg-white rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="50">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-accent-red/10 rounded-bl-full -mr-12 -mt-12 opacity-50"></div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4">Basic Wash</h3>
+            <p class="text-3xl font-bold text-accent-red mb-2">$29.99</p>
+            <p class="text-sm text-gray-600 mb-6">SUV +$1.99 | LRG SUV +$3.99 | XL SUV +$5.99</p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>100% Hand Wash</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Tire Dressing</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Interior Vacuum</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Light Interior Wipe Down</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Air Freshener (Upon Request)</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="tel:+19166916239" class="w-full block text-center py-2 px-4 bg-accent-blue hover:bg-accent-blue text-white rounded-lg text-sm transition-colors">
+              <span class="block font-semibold"><i class="fas fa-phone-alt mr-1"></i> Walk-ins Accepted</span>
+              <span class="block">Tap to Call (916) 691-6239</span>
+            </a>
+          </div>
+        </div>
+        <!-- Express Detail -->
+        <div class="service-card bg-white rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-accent-red/10 rounded-bl-full -mr-12 -mt-12 opacity-50"></div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4">Express Detail</h3>
+            <p class="text-3xl font-bold text-accent-red mb-2">$39.99</p>
+            <p class="text-sm text-gray-600 mb-6">SUV +$1.99 | LRG SUV +$3.99 | XL SUV +$5.99</p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Basic Wash</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Synthetic Spray Wax</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Shampoo Floor Mats</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="tel:+19166916239" class="w-full block text-center py-2 px-4 bg-accent-blue hover:bg-accent-blue text-white rounded-lg text-sm transition-colors">
+              <span class="block font-semibold"><i class="fas fa-phone-alt mr-1"></i> Walk-ins Accepted</span>
+              <span class="block">Tap to Call (916) 691-6239</span>
+            </a>
+          </div>
+        </div>
+        <!-- Wash & Wax -->
+        <div class="service-card bg-white rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="150">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-accent-red/10 rounded-bl-full -mr-12 -mt-12 opacity-50"></div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4">Wash & Wax</h3>
+            <p class="text-3xl font-bold text-accent-red mb-2">$69.99</p>
+            <p class="text-sm text-gray-600 mb-6">SUV $79.99 | LRG SUV/TRUCKS $89.99</p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Meguiar's Hand Wax</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Basic Wash</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Wheel Bright</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="tel:+19166916239" class="w-full block text-center py-2 px-4 bg-accent-blue hover:bg-accent-blue text-white rounded-lg text-sm transition-colors">
+              <span class="block font-semibold"><i class="fas fa-phone-alt mr-1"></i> Walk-ins Accepted</span>
+              <span class="block">Tap to Call (916) 691-6239</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Premium Services -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        <!-- Clay & Wax -->
+        <div class="service-card bg-white rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col" data-aos="fade-up">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-accent-red/10 rounded-bl-full -mr-16 -mt-16 opacity-50"></div>
+          <div class="flex-1">
+            <div class="bg-gradient-to-r from-accent-red to-accent-red text-white px-4 py-1 rounded-full inline-block mb-4 text-sm font-medium">
+              Premium Service
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Clay & Wax</h3>
+            <p class="text-3xl font-bold text-accent-red mb-2">
+              $129.99<sup class="text-xs">*</sup>
+            </p>
+            <p class="text-sm text-gray-600 mb-2">
+              SUV $149.99 | LRG SUV/TRUCKS $169.99
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Remove Bonded Contaminants</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Meguiar's Hand-Applied Wax</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Smooth as Glass!</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="tel:+19166916239" class="w-full block text-center py-2 px-4 bg-accent-blue hover:bg-accent-blue text-white rounded-lg text-sm transition-colors">
+              <span class="block font-semibold">
+                <i class="fas fa-phone-alt mr-1"></i> Walk-ins Accepted
+              </span>
+              <span class="block">Tap to Call (916) 691-6239</span>
+            </a>
+          </div>
+        </div>
+        <!-- Interior Detail -->
+        <div class="service-card bg-white rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="50">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-accent-red/10 rounded-bl-full -mr-16 -mt-16 opacity-50"></div>
+          <div class="flex-1">
+            <div class="bg-gradient-to-r from-accent-red to-accent-red text-white px-4 py-1 rounded-full inline-block mb-4 text-sm font-medium">
+              Premium Service
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Interior Detail</h3>
+            <p class="text-3xl font-bold text-accent-red mb-2">
+              $159.99<sup class="text-xs">*</sup>
+            </p>
+            <p class="text-sm text-gray-600 mb-2">
+              SUV $179.99 | LRG SUV/TRUCKS $199.99
+            </p>
+            <p class="text-xs text-gray-500 italic mb-6">
+              * Cost can vary depending on the condition of your vehicle
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Express Detail Wash</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Interior Shampoo</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Seats & Doors Cleaning</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Dashboard & Console</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="tel:+19166916239" class="w-full block text-center py-2 px-4 bg-accent-blue hover:bg-accent-blue text-white rounded-lg text-sm transition-colors">
+              <span class="block font-semibold">
+                <i class="fas fa-phone-alt mr-1"></i> Walk-ins Accepted
+              </span>
+              <span class="block">Tap to Call (916) 691-6239</span>
+            </a>
+          </div>
+        </div>
+        <!-- Exterior Detail -->
+        <div class="service-card bg-white rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="50">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-accent-red/10 rounded-bl-full -mr-16 -mt-16 opacity-50"></div>
+          <div class="flex-1">
+            <div class="bg-gradient-to-r from-accent-red to-accent-red text-white px-4 py-1 rounded-full inline-block mb-4 text-sm font-medium">
+              Premium Service
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Exterior Detail</h3>
+            <p class="text-3xl font-bold text-accent-red mb-2">
+              $219.99<sup class="text-xs">*</sup>
+            </p>
+            <p class="text-sm text-gray-600 mb-2">
+              SUV $239.99 | LRG SUV/TRUCKS $259.99
+            </p>
+            <p class="text-xs text-gray-500 italic mb-6">
+              * Cost can vary depending on the condition of your vehicle
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Clay & Wax</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>High Speed Polish up to 2 Stages</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>100% Meguiar’s Polishing Compound</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Exterior Dressing Including</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="tel:+19166916239" class="w-full block text-center py-2 px-4 bg-accent-blue hover:bg-accent-blue text-white rounded-lg text-sm transition-colors">
+              <span class="block font-semibold">
+                <i class="fas fa-phone-alt mr-1"></i> Walk-ins Accepted
+              </span>
+              <span class="block">Tap to Call (916) 691-6239</span>
+            </a>
+          </div>
+        </div>
+        <!-- Complete Detail -->
+        <div class="service-card bg-white rounded-xl shadow-md hover:shadow-xl p-6 transition-all duration-300 relative overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-accent-red/10 rounded-bl-full -mr-16 -mt-16 opacity-50"></div>
+          <div class="flex-1">
+            <div class="bg-gradient-to-r from-accent-red to-accent-red text-white px-4 py-1 rounded-full inline-block mb-4 text-sm font-medium">
+              Premium Service
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Complete Detail</h3>
+            <p class="text-3xl font-bold text-accent-red mb-2">
+              $229.99<sup class="text-xs">*</sup>
+            </p>
+            <p class="text-sm text-gray-600 mb-2">
+              SUV $249.99 | LRG SUV/TRUCKS $269.99
+            </p>
+            <p class="text-xs text-gray-500 italic mb-6">
+              * Cost can vary depending on the condition of your vehicle
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Full Interior Detail</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Clay & Wax Treatment</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-accent-red w-5 h-5 mr-3"></i>
+                <span>Premium Finish</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="tel:+19166916239" class="w-full block text-center py-2 px-4 bg-accent-blue hover:bg-accent-blue text-white rounded-lg text-sm transition-colors">
+              <span class="block font-semibold">
+                <i class="fas fa-phone-alt mr-1"></i> Walk-ins Accepted
+              </span>
+              <span class="block">Tap to Call (916) 691-6239</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl font-bold mb-4">Gallery</h2>
+        <p class="text-gray-600">
+          Take a look at some of our recent work and the sparkling results we deliver every day.
+        </p>
+      </div>
+      <!-- Swiper Container for Gallery -->
+      <div id="lightgallery" class="swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide" data-src="images/1.webp">
+            <img src="images/1.webp" alt="Carwash in action 1" class="rounded-lg">
+            <div class="overlay-icon"><i class="fas fa-search"></i></div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide" data-src="images/2.webp">
+            <img src="images/2.webp" alt="Carwash in action 2" class="rounded-lg">
+            <div class="overlay-icon"><i class="fas fa-search"></i></div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide" data-src="images/3.webp">
+            <img src="images/3.webp" alt="Car shining after wash" class="rounded-lg">
+            <div class="overlay-icon"><i class="fas fa-search"></i></div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="swiper-slide" data-src="images/4.webp">
+            <img src="images/4.webp" alt="Detailing process" class="rounded-lg">
+            <div class="overlay-icon"><i class="fas fa-search"></i></div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="swiper-slide" data-src="images/5.webp">
+            <img src="images/5.webp" alt="Close up of hand wash" class="rounded-lg">
+            <div class="overlay-icon"><i class="fas fa-search"></i></div>
+          </div>
+          <!-- Slide 6 -->
+          <div class="swiper-slide" data-src="images/6.webp">
+            <img src="images/6.webp" alt="Exterior shine" class="rounded-lg">
+            <div class="overlay-icon"><i class="fas fa-search"></i></div>
+          </div>
+          <!-- Slide 7 -->
+          <div class="swiper-slide" data-src="images/7.webp">
+            <img src="images/7.webp" alt="Interior detail work" class="rounded-lg">
+            <div class="overlay-icon"><i class="fas fa-search"></i></div>
+          </div>
+          <!-- Slide 8 -->
+          <div class="swiper-slide" data-src="images/8.webp">
+            <img src="images/8.webp" alt="Car detailing finish" class="rounded-lg">
+            <div class="overlay-icon"><i class="fas fa-search"></i></div>
+          </div>
+        </div>
+        <!-- Gallery Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIALS SECTION ====== -->
+  <section id="testimonials" class="py-20 bg-gray-50" data-aos-delay="50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-16 gap-4">
+        <h2 class="text-4xl font-bold text-center md:text-left">What Our Customers Say</h2>
+        <!-- Leave a Review Button -->
+        <button
+          id="review-button"
+          class="bg-accent-yellow hover:bg-accent-yellow text-black px-6 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors w-full md:w-auto"
+          onclick="document.getElementById('review-modal').classList.remove('hidden')"
+        >
+          <i class="fas fa-star"></i>
+          Leave a Review
+        </button>
+      </div>
+
+      <!-- Review Modal -->
+      <div
+        id="review-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+        onclick="if(event.target === this) this.classList.add('hidden')"
+      >
+        <div class="bg-white rounded-xl p-6 max-w-md w-full">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold">Choose Where to Review</h3>
+            <button
+              onclick="document.getElementById('review-modal').classList.add('hidden')"
+              class="text-gray-400 hover:text-gray-600 cursor-pointer"
+            >
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+          
+          <div class="space-y-4">
+            <!-- Google Review Button -->
+            <a
+              href="https://www.google.com/search?q=rallysport+auto+spa"
+              target="_blank"
+              class="flex items-center gap-4 p-4 border rounded-lg hover:bg-gray-50 transition-colors w-full"
+            >
+              <i class="fab fa-google text-2xl text-[#4285F4]"></i>
+              <div class="flex-1">
+                <h4 class="font-semibold">Google Review</h4>
+                <p class="text-sm text-gray-600">Share your experience on Google</p>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+            
+            <!-- Yelp Review Button -->
+            <a
+              href="https://www.yelp.com/biz/rallysport-auto-spa-costa-mesa"
+              target="_blank"
+              class="flex items-center gap-4 p-4 border rounded-lg hover:bg-gray-50 transition-colors w-full"
+            >
+              <i class="fab fa-yelp text-2xl text-[#FF1A1A]"></i>
+              <div class="flex-1">
+                <h4 class="font-semibold">Yelp Review</h4>
+                <p class="text-sm text-gray-600">Share your experience on Yelp</p>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+            
+            <!-- Facebook Review Button -->
+            <a
+              href="https://www.facebook.com/profile.php?id=100057324284850&sk=reviews"
+              target="_blank"
+              class="flex items-center gap-4 p-4 border rounded-lg hover:bg-gray-50 transition-colors w-full"
+            >
+              <i class="fab fa-facebook text-2xl text-[#1877F2]"></i>
+              <div class="flex-1">
+                <h4 class="font-semibold">Facebook Review</h4>
+                <p class="text-sm text-gray-600">Share your experience on Facebook</p>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+          </div>
+          
+          <p class="text-sm text-gray-500 text-center mt-6">
+            Thank you for taking the time to review us!
+          </p>
+        </div>
+      </div>
+
+      <!-- Swiper Container for Testimonials -->
+      <div class="swiper-container testimonials-slider">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1: Yelp Review -->
+          <div class="swiper-slide">
+            <div class="review bg-white rounded-lg shadow-md overflow-hidden flex items-center" data-aos="fade-up">
+              <div class="review-content max-w-full">
+                <span class="yelp-review" data-review-id="TCXKQVvcA45rUlG5u963wQ" data-hostname="www.yelp.com">
+                  Read <a href="https://www.yelp.com/user_details?userid=HZH3sq_FcTnWzNMFYoCGHg" rel="nofollow noopener">David H.</a>'s 
+                  <a href="https://www.yelp.com/biz/rallysport-auto-spa-costa-mesa?hrid=TCXKQVvcA45rUlG5u963wQ" rel="nofollow noopener">review</a> of 
+                  <a href="https://www.yelp.com/biz/zguAZMK1BQ-63lbWxj2VQA" rel="nofollow noopener">Rallysport Auto Spa</a> on 
+                  <a href="https://www.yelp.com" rel="nofollow noopener">Yelp</a>
+                  <script src="https://www.yelp.com/embed/widgets.js" type="text/javascript" async></script>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Facebook Review -->
+          <div class="swiper-slide">
+            <div class="review bg-white rounded-lg shadow-md overflow-hidden flex items-center" data-aos="fade-up">
+              <div class="review-content max-w-full">
+                <iframe 
+                  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbilly.swanson.1650%2Fposts%2Fpfbid0281YenHTVkYE9NHeRP2GrizQVc9Pqd5gjAhnHHjMnRvVtk4ep3B1JM3MSDPFsjV39l&show_text=true&width=500" 
+                  style="border:none;overflow:hidden" 
+                  scrolling="no" 
+                  frameborder="0" 
+                  allowfullscreen="true" 
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Sample Slides for Yelp or Facebook -->
+          
+          <div class="swiper-slide">
+            <div class="review bg-white rounded-lg shadow-md overflow-hidden flex items-center" data-aos="fade-up">
+              <div class="review-content max-w-full">
+                <iframe
+                  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fricardo.texis%2Fposts%2Fpfbid0zUbd3t3R2LNbtxZ9z5np1WJupcz5LVpSNnX8kY6aMmQU6ZFYkMK6tyztVZ9xhghHl&show_text=true&width=500"
+                  width="500"
+                  height="186"
+                  style="border:none;overflow:hidden"
+                  scrolling="no"
+                  frameborder="0"
+                  allowfullscreen="true"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review bg-white rounded-lg shadow-md overflow-hidden flex items-center" data-aos="fade-up">
+              <div class="review-content max-w-full">
+                <iframe
+                  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbilly.swanson.1650%2Fposts%2Fpfbid0281YenHTVkYE9NHeRP2GrizQVc9Pqd5gjAhnHHjMnRvVtk4ep3B1JM3MSDPFsjV39l&show_text=true&width=500"
+                  style="border:none;overflow:hidden"
+                  scrolling="no"
+                  frameborder="0"
+                  allowfullscreen="true"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Reviews (will be appended here by JavaScript) -->
+
+        </div>
+        <!-- Testimonials Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb=12">Contact Us</h2>
+      <!-- Contact Info -->
+      <div class="max-w-5xl mx-auto mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <!-- Location -->
+          <div class="flex flex-col items-center">
+            <i class="fas fa-map-marker-alt text-accent-red text-3xl mb-4"></i>
+            <p class="text-gray-600">2015 Harbor Blvd
+              <br>Costa Mesa, CA 92627</p>
+          </div>
+          <!-- Contact -->
+          <div class="flex flex-col items-center">
+            <i class="fas fa-phone text-accent-red text-3xl mb-4"></i>
+            <p class="text-gray-600">(916) 691-6239<br>Mon-Sun: 8AM-4PM</p>
+          </div>
+          <!-- Email -->
+          <div class="flex flex-col items-center">
+            <i class="fas fa-envelope text-accent-red text-3xl mb-4"></i>
+            <p class="text-gray-600">info@rallysportcarwash.com</p>
+          </div>
+        </div>
+      </div>
+      <!-- Map -->
+      <div class="w-full max-w-5xl mx-auto h-96 rounded-lg overflow-hidden shadow-lg">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.3619298886997!2d-117.92200572383565!3d33.64778273897802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcdf869b73790b%3A0xa0082c48846e7b41!2s2015%20B%20Harbor%20Blvd%2C%20Costa%20Mesa%2C%20CA%2092627!5e0!3m2!1sen!2sus!4v1738377726673!5m2!1sen!2sus" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade" 
+          class="w-full h-full">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-50 py-16 border-t border-gray-200">
+    <div class="container mx-auto px-6">
+      <!-- Top Footer Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+        <!-- Company Info -->
+        <div class="lg:col-span-1">
+          <img src="image.png" alt="Rallysports Auto Spa Logo" class="h-16 mb-6">
+          <p class="text-gray-600 mb-6">
+            Southern California's premier auto detailing service. We combine traditional craftsmanship with modern techniques to deliver exceptional results. Our certified technicians treat every vehicle with the utmost care and attention to detail.
+          </p>
+          <div class="flex space-x-4 mb-6">
+            <a href="https://www.facebook.com/profile.php?id=100057324284850" class="text-gray-400 hover:text-accent-red transition-colors">
+              <i class="fab fa-facebook-f fa-lg"></i>
+            </a>
+            <a href="https://www.instagram.com/rallysportautospa/" class="text-gray-400 hover:text-accent-red transition-colors">
+              <i class="fab fa-instagram fa-lg"></i>
+            </a>
+          </div>
+          <!-- Payment Methods -->
+          <div>
+            <p class="text-sm text-gray-500 mb-3">All major payment methods accepted.</p>
+          </div>
+        </div>
+        <!-- Quick Links & Hours -->
+        <div class="lg:col-span-1">
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-6">Quick Links</h3>
+              <ul class="space-y-4">
+                <li><a href="#" class="text-gray-600 hover:text-accent-red transition-colors">Home</a></li>
+                <li><a href="#services" class="text-gray-600 hover:text-accent-red transition-colors">Services</a></li>
+                <li><a href="#gallery" class="text-gray-600 hover:text-accent-red transition-colors">Gallery</a></li>
+                <li><a href="#testimonials" class="text-gray-600 hover:text-accent-red transition-colors">Reviews</a></li>
+                <li><a href="https://rallysportautospa.com/privacy-policy/" class="text-gray-600 hover:text-accent-red transition-colors">Privacy Policy</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-accent-red transition-colors">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 mb-6">Hours</h3>
+              <ul class="space-y-3">
+                <li class="text-gray-600">
+                  <span class="font-semibold">Mon-Fri:</span><br>
+                  8:00 AM - 4:00 PM
+                </li>
+                <li class="text-gray-600">
+                  <span class="font-semibold">Saturday:</span><br>
+                  8:00 AM - 4:00 PM
+                </li>
+                <li class="text-gray-600">
+                  <span class="font-semibold">Sunday:</span><br>
+                  8:00 AM - 4:00 PM
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Map -->
+        <div class="lg:col-span-1">
+          <h3 class="text-lg font-bold text-gray-900 mb-6">Find Us</h3>
+          <div class="w-full h-64 bg-gray-200 rounded-lg mb-4 overflow-hidden">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.792601729955!2d-117.92200572383565!3d33.64778273897802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcdf385a37baf3%3A0x8b9e666fde2c11d3!2sRallysportAutoSpa!5e1!3m2!1sen!2sus!4v1738608496972!5m2!1sen!2sus" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade" 
+              class="w-full h-full">
+            </iframe>
+          </div>
+          <div class="text-gray-600">
+            <p class="font-semibold">Rallysports Auto Spa</p>
+            <p>2015 B Harbor Blvd</p>
+            <p>Costa Mesa, CA 92627</p>
+            <p class="mt-2">
+              <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.792601729955!2d-117.92200572383565!3d33.64778273897802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcdf385a37baf3%3A0x8b9e666fde2c11d3!2sRallysportAutoSpa!5e1!3m2!1sen!2sus!4v1738608496972!5m2!1sen!2sus" class="text-accent-red hover:text-accent-red transition-colors" target="_blank">Get Directions →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Footer -->
+      <div class="border-t border-gray-200 pt-8 mt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 Rallysports Auto Spa. All rights reserved.</p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-500 hover:text-accent-red text-sm">Privacy Policy</a>
+            <a href="#" class="text-gray-500 hover:text-accent-red text-sm">Terms of Service</a>
+            <a href="#" class="text-gray-500 hover:text-accent-red text-sm">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Initialize AOS, Swiper, LightGallery and Mobile Menu Functionality -->
+  <script>
+    AOS.init({
+      duration: 200,
+      once: true
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+      // Mobile menu toggle
+      mobileMenuButton?.addEventListener('click', function() {
+        mobileMenu?.classList.toggle('active');
+      });
+
+      const mobileMenuLinks = mobileMenu?.getElementsByTagName('a');
+      Array.from(mobileMenuLinks || []).forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', function(event) {
+        if (!mobileMenu || !mobileMenuButton) return;
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnButton = mobileMenuButton.contains(event.target);
+        if (!isClickInsideMenu && !isClickOnButton && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+
+      // Initialize Swiper for the Gallery with Grid Mode: 2 rows, 4 columns per page.
+      var gallerySwiper = new Swiper('#lightgallery', {
+        slidesPerView: 4,
+        grid: {
+          rows: 2,
+          fill: 'row'
+        },
+        spaceBetween: 10,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          320: { slidesPerView: 2, grid: { rows: 2, fill: 'row' } },
+          640: { slidesPerView: 3, grid: { rows: 2, fill: 'row' } },
+          1024: { slidesPerView: 4, grid: { rows: 2, fill: 'row' } },
+          1280: { slidesPerView: 4, grid: { rows: 2, fill: 'row' } },
+          1536: { slidesPerView: 4, grid: { rows: 2, fill: 'row' } }
+        }
+      });
+
+      // Initialize LightGallery on the gallery container (if you have it).
+      if (typeof lightGallery !== 'undefined') {
+        lightGallery(document.getElementById('lightgallery'), {
+          selector: '.swiper-slide',
+          download: false,
+          plugins: [lgThumbnail, lgZoom],
+        });
+      }
+
+      // Initialize Swiper for the Testimonials Slider
+      window.testimonialsSwiper = new Swiper('.testimonials-slider', {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        grid: {
+          rows: 2,
+          fill: 'row'
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            grid: {
+              rows: 2,
+              fill: 'row'
+            },
+            spaceBetween: 16
+          },
+          768: {
+            slidesPerView: 2,
+            grid: {
+              rows: 2,
+              fill: 'row'
+            },
+            spaceBetween: 20
+          },
+          1024: {
+            slidesPerView: 2,
+            grid: {
+              rows: 2,
+              fill: 'row'
+            },
+            spaceBetween: 24
+          }
+        },
+        on: {
+          init: function() {
+            setTimeout(() => {
+              this.update();
+            }, 500);
+          }
+        }
+      });
+
+      /*
+       * ----------------------------------------------------------------
+       * GOOGLE REVIEWS ADDITION
+       * ----------------------------------------------------------------
+       */
+
+      // Insert your actual, domain-restricted Google Maps API key here:
+      const googleApiKey = "AIzaSyAfPsNTY3o9LUZwmiHpirxhqpDLE1Dt6Dw";
+      const placeId = "ChIJVWNPm4bf3IARWV6FWIsdgPs"; // Replace with your correct Place ID if needed
+
+      function initializeGoogleReviews() {
+        console.log('🚀 Starting Google Reviews initialization...');
+        
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&libraries=places`;
+        script.async = true;
+        script.defer = true;
+        
+        script.onload = () => {
+          console.log('✅ Google Maps API script loaded successfully');
+          fetchGoogleReviews();
+        };
+        
+        script.onerror = (error) => {
+          console.error('❌ Error loading Google Maps API script:', error);
+        };
+        
+        document.head.appendChild(script);
+        console.log('📝 Google Maps API script added to document head');
+      }
+
+      function fetchGoogleReviews() {
+  console.log('🔍 Starting to fetch Google Reviews...');
+
+  const mapDiv = document.createElement('div');
+  const map = new google.maps.Map(mapDiv, {
+    center: { lat: 33.647783, lng: -117.919431 },
+    zoom: 15
+  });
+
+  const service = new google.maps.places.PlacesService(map);
+  
+  const request = {
+    placeId: placeId,
+    fields: ['name', 'rating', 'reviews', 'user_ratings_total', 'photos', 'formatted_address']
+  };
+
+  service.getDetails(request, (place, status) => {
+    console.log('📥 Received response from Places API:', { status, place });
+
+    if (status === google.maps.places.PlacesServiceStatus.OK && place && place.reviews) {
+      const testimonialWrapper = document.querySelector(".testimonials-slider .swiper-wrapper");
+
+      // Filter for 4+ star reviews and get the latest ones
+      const highRatedReviews = place.reviews
+        .filter(review => review.rating >= 4)
+        .sort((a, b) => b.time - a.time) // Sort by most recent
+        .slice(0, 15);
+
+      highRatedReviews.forEach((reviewObj, index) => {
+        const slide = document.createElement("div");
+        slide.classList.add("swiper-slide");
+
+        const reviewDiv = document.createElement("div");
+        reviewDiv.classList.add(
+          "review",
+          "bg-white",
+          "rounded-lg",
+          "shadow-md",
+          "overflow-hidden",
+          "flex",
+          "items-center"
+        );
+        reviewDiv.setAttribute("data-aos", "fade-up");
+
+        const starCount = Math.round(reviewObj.rating);
+        const starHTML = Array(5).fill().map((_, i) => 
+          i < starCount 
+            ? '<i class="fas fa-star text-yellow-400"></i>'
+            : '<i class="far fa-star text-gray-300"></i>'
+        ).join('');
+
+        // Truncate review text to 120 characters
+        const truncatedText = reviewObj.text.length > 50 
+          ? `${reviewObj.text.substring(0, 120)}...`
+          : reviewObj.text;
+
+        const reviewContent = `
+          <div class="review-content w-full p-2">
+            <div class="flex flex-col space-y-3">
+              <!-- Google branding and user info -->
+              <div class="flex items-center justify-between">
+                <div class="google-img flex items-center space-x-3">
+                  <img
+                    src="${reviewObj.profile_photo_url || '/api/placeholder/40/40'}"
+                    alt="${reviewObj.author_name}"
+                    class="w-8 h-8 rounded-full object-cover"
+                  />
+                  <div>
+                    <p class="font-medium">${reviewObj.author_name}</p>
+                    <div class="flex items-center space-x-2">
+                      <img
+                        src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                        alt="Google"
+                        class="h-4 object-contain"
+                      />
+                      <span class="text-xs text-gray-500">
+                        ${new Date(reviewObj.time * 1000).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex space-x-1">
+                  ${starHTML}
+                </div>
+              </div>
+              
+              <!-- Review text -->
+              <div class="text-gray-700 text-sm leading-relaxed break-words">
+                ${truncatedText}
+              </div>
+            </div>
+          </div>
+        `;
+
+        reviewDiv.innerHTML = reviewContent;
+        slide.appendChild(reviewDiv);
+        testimonialWrapper.appendChild(slide);
+        console.log(`✅ Added review ${index + 1} to the DOM`);
+      });
+
+      // Update Swiper after adding new slides
+      if (typeof testimonialsSwiper !== 'undefined') {
+        testimonialsSwiper.update();
+        console.log('✅ Updated Swiper configuration');
+        
+        testimonialsSwiper.params.slidesPerView = 1;
+        testimonialsSwiper.params.breakpoints = {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          }
+        };
+        testimonialsSwiper.update();
+      }
+    } else {
+      console.error('❌ Places API Error:', status);
+    }
+  });
+}
+
+      // Start the initialization of Google Reviews
+      initializeGoogleReviews();
+    });
+  </script>
+</body>
+</html>
